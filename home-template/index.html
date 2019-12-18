@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>homez</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    
+    <header class="header">
+        <img src="img/logo.png" alt="homez" />
+        <section class="search">
+            <form>
+                <input class="search__field" type="search" name="query" placeholder="Search your home" />
+                <button class="search__button">🔍</button>
+            </form>
+            <button class="search__filters">Filters</button>
+        </section>
+    </header>
+    <main>
+        <section class="filters">
+            <h1 class="filters__title">Price</h1>
+            <span class="price">
+                <input class="price__field" type="number" name="price" min="1000" max="999900" step="100"
+                    placeholder="Min price" />
+                -
+                <input class="price__field" type="number" name="price" min="1000" max="999900" step="100"
+                    placeholder="Max price" />
+            </span>
+            <h1 class="filters__title">Size</h1>
+            <span class="size">
+                <input class="size__field" type="number" name="size" min="10" max="999" placeholder="Min size" />
+                -
+                <input class="size__field" type="number" name="size" min="10" max="999" placeholder="Max size" />
+            </span>
+            <h1 class="filters__title">Rooms</h1>
+            <span class="rooms">
+                1+ <input class="rooms__range" type="range" min="1" max="5" name="rooms" value="1"> 5+
+            </span>
+            <button class="filters__button">Watch apartments</button>
+        </section>
+        <section class="apartments">
+            <section class="apartment">
+                <img src="img/dummy.png" alt="apartment" />
+                <h1 class="apartment__price">299,000€</h1>
+                <h1 class="apartment__title">Nice apartment in Fake Street</h1>
+                <span class="apartment__items">
+                    <p class="apartment__sqm">199m²</p>
+                    <p class="apartment__bedrooms">3 rooms</p>
+                    <p class="apartment__bathrooms">2 baths</p>
+                </span>
+            </section>
+            <section class="apartment">
+                <img src="img/dummy.png" alt="apartment" />
+                <h1 class="apartment__price">199,000€</h1>
+                <h1 class="apartment__title">Cool apartment in Nothing Street</h1>
+                <span class="apartment__items">
+                    <p class="apartment__sqm">99m²</p>
+                    <p class="apartment__bedrooms">2 rooms</p>
+                    <p class="apartment__bathrooms">1 bath</p>
+                </span>
+            </section>
+        </section>
+    </main>
 </body>
+
 </html>
