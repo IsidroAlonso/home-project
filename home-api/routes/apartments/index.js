@@ -1,6 +1,5 @@
 const { Router } = require('express')
 const { searchApartment, listApartments, retrieveApartment } = require('../../logic')
-const jwt = require('jsonwebtoken')
 const { env: { SECRET } } = process
 const bodyParser = require('body-parser')
 const { errors: { NotFoundError, ConflictError, CredentialsError } } = require('home-util')
@@ -29,7 +28,7 @@ router.get('/getapts', (req, res) => {
     }
 })
 
-router.get('/:aptId', tokenVerifier, jsonBodyParser, (req, res) => {
+router.get('/:aptId', jsonBodyParser, (req, res) => {
     try {
         const { params: { aptId } } = req
 
