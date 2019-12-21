@@ -1,9 +1,8 @@
 const { Router } = require('express')
-const { searchApartment, listApartments, retrieveApartment } = require('../../logic')
+const { searchApartment, listApartments } = require('../../logic')
 const { env: { SECRET } } = process
 const bodyParser = require('body-parser')
-const { errors: { NotFoundError, ConflictError, CredentialsError } } = require('home-util')
-const Busboy = require('busboy')
+const { errors: { NotFoundError } } = require('home-util')
 
 const jsonBodyParser = bodyParser.json()
 
@@ -19,25 +18,6 @@ router.get('/getapts', (req, res) => {
                 if (error instanceof NotFoundError)
                     return res.status(404).json({ message })
 
-                res.status(500).json({ message })
-            })
-    } catch (error) {
-        const { message } = error
-
-        res.status(400).json({ message })
-    }
-})
-
-router.get('/:aptId', jsonBodyParser, (req, res) => {
-    try {
-        const { params: { aptId } } = req
-
-        retrieveApartment(aptId)
-            .then(apartment => res.json(apartment))
-            .catch(error => {
-                const { message } = error
-                if (error instanceof NotFoundError)
-                    return res.status(404).json({ message })
                 res.status(500).json({ message })
             })
     } catch (error) {
