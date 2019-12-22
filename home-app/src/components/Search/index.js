@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import { searchApartment } from '../../logic'
 import Filters from '../Filters'
 import AptItem from '../AptItem'
+import Feedback from '../Feedback'
 
 export default function () {
 
     const [apartments, setApartments] = useState([])
+
+    const [error, setError] = useState('')
 
     async function handleSearch(query) {
         try {
@@ -14,7 +17,7 @@ export default function () {
 
             setApartments(apartments)
         } catch (error) {
-            console.error(error)
+            setError(error.message)
         }
     }
 
@@ -23,6 +26,8 @@ export default function () {
     return <><section className="search">
         <form onSubmit={event => {
             event.preventDefault()
+
+            document.getElementsByClassName('apartmentsall')[0].style.display = 'none'
 
             const query = event.target.query.value
             
@@ -43,6 +48,7 @@ export default function () {
         }}>Filters</button>
     </section>
     <Filters />
+    {error && <Feedback message={error} />}
     {apartments.map(apartment => <section className="apartments" key={apartment.id}><AptItem apartment={apartment} /></section>)}
     </>
 }

@@ -15,7 +15,7 @@ export default function () {
         })()
     })
 
-    return <>
-        {apartments.map(apartment => <section className="apartments" key={apartment.id}><AptItem apartment={apartment} /></section>)}
-    </>
+    return <section className="apartmentsall">
+        {apartments.map(apartment => <section key={apartment.id}><AptItem apartment={apartment} /></section>)}
+    </section>
 }
