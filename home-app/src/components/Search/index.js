@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { searchApartment } from '../../logic'
+import AptItem from '../AptItem'
 
 export default function () {
 
@@ -18,7 +19,7 @@ export default function () {
 
     let clickCounter = 0
 
-    return <section className="search">
+    return <><section className="search">
         <form onSubmit={event => {
             event.preventDefault()
 
@@ -40,4 +41,6 @@ export default function () {
             }
         }}>Filters</button>
     </section>
+    {apartments.map(apartment => <section className="apartments" key={apartment.id}><AptItem apartment={apartment} /></section>)}
+    </>
 }
