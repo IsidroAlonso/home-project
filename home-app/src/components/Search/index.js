@@ -8,7 +8,7 @@ export default function () {
 
     const [apartments, setApartments] = useState([])
 
-    const [error, setError] = useState('')
+    const [error, setError] = useState()
 
     async function handleSearch(query) {
         try {
@@ -17,7 +17,8 @@ export default function () {
 
             setApartments(apartments)
         } catch (error) {
-            setError(error.message)
+                setError(error.message)
+                setTimeout(function(){ window.location.reload() }, 1000)
         }
     }
 
@@ -30,7 +31,7 @@ export default function () {
             document.getElementsByClassName('apartmentsall')[0].style.display = 'none'
 
             const query = event.target.query.value
-            
+
             handleSearch(query)
         }}>
             <input className="search__field" type="search" name="query" placeholder="Search your home" />
@@ -47,8 +48,8 @@ export default function () {
             }
         }}>Filters</button>
     </section>
-    <Filters />
-    {error && <Feedback message={error} />}
-    {apartments.map(apartment => <section className="apartments" key={apartment.id}><AptItem apartment={apartment} /></section>)}
+        <Filters />
+        {error && <Feedback message={error} />}
+        {apartments.map(apartment => <section className="apartments" key={apartment.id}><AptItem apartment={apartment} /></section>)}
     </>
 }
