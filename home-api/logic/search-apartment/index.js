@@ -7,9 +7,9 @@ module.exports = function (query) {
 
     return (async () => {
 
-        const apartments = await Apartment.find({"title": {$regex : `.*${query}*`}}).lean()
+        const apartments = await Apartment.find({"title": {$regex : `.*${query}*`, $options: 'i'}}).lean()
 
-        if (apartments.length === 0) throw new NotFoundError(`user ${query} not found`)
+        if (apartments.length === 0) throw new NotFoundError(`apartment ${query} not found`)
 
         return apartments
     })()
