@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { searchApartment } from '../../logic'
+import Filters from '../Filters'
 import AptItem from '../AptItem'
 
 export default function () {
@@ -41,6 +42,7 @@ export default function () {
             }
         }}>Filters</button>
     </section>
+    <Filters />
     {apartments.map(apartment => <section className="apartments" key={apartment.id}><AptItem apartment={apartment} /></section>)}
     </>
 }

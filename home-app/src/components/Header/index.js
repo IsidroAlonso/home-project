@@ -3,8 +3,8 @@ import Search from '../Search'
 
 export default function () {
 
-    return <header className="header">
+    return <><header className="header">
         <img src="img/logo.png" alt="homez" />
-        <Search />
     </header>
+        <Search /></>
 }
