@@ -1,5 +1,5 @@
 const call = require('../../utils/call')
-const { errors: { NotFoundError, CredentialsError } } = require('home-util')
+const { validate, errors: { NotFoundError, CredentialsError } } = require('home-util')
 const API_URL = process.env.REACT_APP_API_URL
 
 module.exports = function () {
