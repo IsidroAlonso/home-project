@@ -7,7 +7,7 @@
     "start": "node .",
     "debug": "node inspect .",
     "watch": "npx nodemon .",
-    "test": "npx mocha logic/**/*.spec.js",
+    "test": "npx mocha logic/**/*.spec.js --timeout 5000",
     "test-debug": "npx mocha inspect logic/*/*.spec.js"
   },
   "keywords": [],
